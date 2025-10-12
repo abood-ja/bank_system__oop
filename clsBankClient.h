@@ -26,8 +26,10 @@ public:
         clsPerson(firstName, lastName, email, phone)
     {
         _Mode = mode;
+        this->pinCode = pinCode;
         _AccountNumber = accountNumber;
         _AccountBalance = accountBalance;
+
 
     }
     bool isEmpty()
