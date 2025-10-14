@@ -7,7 +7,7 @@
 class clsBankClient : public clsPerson
 {
 private:
-    enum enMode { EmptyMode = 0, UpdateMode = 1 };
+    enum enMode { EmptyMode = 0, UpdateMode = 1 , AddNewMode = 2};
     enMode _Mode;
     string _AccountNumber;
     string _PinCode;
@@ -50,10 +50,7 @@ private:
         clientRecord += client.getAccountNumber() + seperator;
         clientRecord += client.pinCode + seperator;
         clientRecord += to_string(client.accountBalance);
-
-
         return clientRecord;
-
     }
     static void _SaveClientsDataToFile(vector<clsBankClient>vClients)
     {
@@ -70,6 +67,10 @@ private:
             myFile.close();
         }
 
+    }
+     void _AddNew()
+    {
+         _AddDataLineToFile(_ConvertClientObjectToLine(*this));
     }
     void _Update()
     {
@@ -188,18 +189,32 @@ public:
         clsBankClient client = find(accountNumber);
         return !(client.isEmpty());
     }
-    enum enSaveResults { svFailedEmptyObject = 0,svSucceeded=1 };
+    enum enSaveResults { svFailedEmptyObject = 0,svSucceeded=1, svFailedAccountNumberExists=2};
     enSaveResults save()
     {
-	    switch (_Mode)
-	    {
-	    case enMode::EmptyMode:
+        switch (_Mode)
+        {
+        case enMode::EmptyMode:
             return enSaveResults::svFailedEmptyObject;
-	    case enMode::UpdateMode:
+        case enMode::UpdateMode:
             _Update();
             return enSaveResults::svSucceeded;
-
+        case enMode::AddNewMode:
+            if (isEmpty())
+            {
+                return enSaveResults::svFailedAccountNumberExists;
+            }
+            else
+            {
+                _AddNew();
+                this->_Mode = enMode::UpdateMode;
+                return enSaveResults::svSucceeded;
+            }
 	    }
+    }
+    static clsBankClient getAddNewClientObject(string accountNumber)
+    {
+        return clsBankClient(enMode::AddNewMode, "", "", "", "", accountNumber, "",0);
     }
     __declspec(property(get = getAccountBalance, put = setAccountBalance))double accountBalance;
     __declspec(property(get = getPinCode, put = setPinCode))string pinCode;
