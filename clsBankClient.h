@@ -21,6 +21,72 @@ private:
     {
         return clsBankClient(enMode::EmptyMode, "", "", "", "", "", "", 0);
     }
+    static vector< clsBankClient> _LoadClientsDataFromFile()
+    {
+        fstream myFile;
+        vector<clsBankClient>vClients;
+        myFile.open("Clients.txt", ios::in);
+        if (myFile.is_open())
+        {
+            string line;
+            
+            while (getline(myFile, line))
+            {
+                clsBankClient client = _ConvertLineToClientObject(line);
+                vClients.push_back(client);
+            }
+            myFile.close();
+        }
+        return vClients;
+
+    }
+    static string _ConvertClientObjectToLine(clsBankClient client, string seperator = "#//#")
+    {
+        string clientRecord = "";
+        clientRecord += client.firstName + seperator;
+        clientRecord += client.lastName + seperator;
+        clientRecord += client.email + seperator;
+        clientRecord += client.phone + seperator;
+        clientRecord += client.getAccountNumber() + seperator;
+        clientRecord += client.pinCode + seperator;
+        clientRecord += to_string(client.accountBalance);
+
+
+        return clientRecord;
+
+    }
+    static void _SaveClientsDataToFile(vector<clsBankClient>vClients)
+    {
+        fstream myFile;
+        myFile.open("Clients.txt", ios::out);
+        string dataLine;
+        if (myFile.is_open())
+        {
+            for (clsBankClient& client : vClients)
+            {
+                dataLine = _ConvertClientObjectToLine(client);
+                    myFile << dataLine << endl;
+            }
+            myFile.close();
+        }
+
+    }
+    void _Update()
+    {
+        vector<clsBankClient> _vClients;
+        _vClients = _LoadClientsDataFromFile();
+
+
+        for (clsBankClient &client :_vClients)
+        {
+	        if (client.getAccountNumber()==this->getAccountNumber())
+	        {
+                client = *this;
+                break;
+	        }
+        }
+        _SaveClientsDataToFile(_vClients);
+    }
 public:
     clsBankClient(enMode mode, string firstName, string lastName, string email, string phone, string accountNumber, string pinCode, double accountBalance) :
         clsPerson(firstName, lastName, email, phone)
@@ -121,6 +187,19 @@ public:
     {
         clsBankClient client = find(accountNumber);
         return !(client.isEmpty());
+    }
+    enum enSaveResults { svFailedEmptyObject = 0,svSucceeded=1 };
+    enSaveResults save()
+    {
+	    switch (_Mode)
+	    {
+	    case enMode::EmptyMode:
+            return enSaveResults::svFailedEmptyObject;
+	    case enMode::UpdateMode:
+            _Update();
+            return enSaveResults::svSucceeded;
+
+	    }
     }
     __declspec(property(get = getAccountBalance, put = setAccountBalance))double accountBalance;
     __declspec(property(get = getPinCode, put = setPinCode))string pinCode;
