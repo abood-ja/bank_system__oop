@@ -117,6 +117,16 @@ public:
     {
         return (_Mode == enMode::EmptyMode);
     }
+    static double getTotalBalances()
+    {
+        vector<clsBankClient>vClients = _LoadClientsDataFromFile();
+        double total = 0;
+        for (clsBankClient &client:vClients)
+        {
+            total += client.accountBalance;
+        }
+        return total;
+    }
     bool getMarkedForDeleted()
     {
         return _MarkedForDelete;
@@ -251,6 +261,9 @@ public:
     static clsBankClient getAddNewClientObject(string accountNumber)
     {
         return clsBankClient(enMode::AddNewMode, "", "", "", "", accountNumber, "",0);
+    }
+    static vector<clsBankClient> getClientList() {
+        return _LoadClientsDataFromFile();
     }
     __declspec(property(get = getAccountBalance, put = setAccountBalance))double accountBalance;
     __declspec(property(get = getPinCode, put = setPinCode))string pinCode;
