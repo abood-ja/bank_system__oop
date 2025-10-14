@@ -57,6 +57,7 @@ void addNewClient()
 	clsBankClient newClient = clsBankClient::getAddNewClientObject(accNumber);
 	readClientInfo(newClient);
 	clsBankClient::enSaveResults saveResult;
+	saveResult = newClient.save();
 	switch (saveResult)
 	{
 	case clsBankClient::svSucceeded:
@@ -71,10 +72,37 @@ void addNewClient()
 		break;
 	}
 }
+void deleteClient()
+{
+	string accountNumber;
+	cout << "\nPlease enter account Number: ";
+	accountNumber = clsInputValidate::ReadString();
+	while (!clsBankClient::isClientExist(accountNumber))
+	{
+		cout << "\nAccount number is not found ,enter another one: ";
+		accountNumber = clsInputValidate::ReadString();
+	}
+	clsBankClient client = clsBankClient::find(accountNumber);
+	client.print();
+	cout << "\nAre you sure you want to delete this client y/n? ";
+	char answer = 'n';
+	cin >> answer;
+	if (answer=='y'||answer=='Y')
+	{
+		if (client.Delete())
+		{
+			cout << "\nClient Deleted Successfully :-)\n";
+			client.print();
+		}
+		else
+		{
+			cout << "\nError client was not deleted\n";
+		}
+	}
+}
 int main()
 {
-	addNewClient();
+	deleteClient();
 	system("pause>0");
 	return 0;
-	
 }

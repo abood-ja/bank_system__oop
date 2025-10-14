@@ -12,6 +12,7 @@ private:
     string _AccountNumber;
     string _PinCode;
     double _AccountBalance;
+    bool _MarkedForDelete = false;
     static clsBankClient _ConvertLineToClientObject(string line, string seperator = "#//#")
     {
         vector<string>vClientData = clsString::Split(line, seperator);
@@ -61,23 +62,36 @@ private:
         {
             for (clsBankClient& client : vClients)
             {
-                dataLine = _ConvertClientObjectToLine(client);
+                if (client._MarkedForDelete == false) {
+                    dataLine = _ConvertClientObjectToLine(client);
                     myFile << dataLine << endl;
+                }
             }
             myFile.close();
         }
 
     }
+    static void _AddDataLineToFile(string stDataLine)
+    {
+        fstream MyFile;
+        MyFile.open("Clients.txt", ios::out | ios::app);
+
+        if (MyFile.is_open())
+        {
+
+            MyFile << stDataLine << endl;
+
+            MyFile.close();
+        }
+    }
      void _AddNew()
     {
          _AddDataLineToFile(_ConvertClientObjectToLine(*this));
     }
-    void _Update()
-    {
+     void _Update()
+     {
         vector<clsBankClient> _vClients;
         _vClients = _LoadClientsDataFromFile();
-
-
         for (clsBankClient &client :_vClients)
         {
 	        if (client.getAccountNumber()==this->getAccountNumber())
@@ -87,7 +101,7 @@ private:
 	        }
         }
         _SaveClientsDataToFile(_vClients);
-    }
+     }
 public:
     clsBankClient(enMode mode, string firstName, string lastName, string email, string phone, string accountNumber, string pinCode, double accountBalance) :
         clsPerson(firstName, lastName, email, phone)
@@ -102,6 +116,10 @@ public:
     bool isEmpty()
     {
         return (_Mode == enMode::EmptyMode);
+    }
+    bool getMarkedForDeleted()
+    {
+        return _MarkedForDelete;
     }
     string getAccountNumber()
     {
@@ -188,6 +206,24 @@ public:
     {
         clsBankClient client = find(accountNumber);
         return !(client.isEmpty());
+    }
+    bool Delete()
+    {
+        vector<clsBankClient>_vClients;
+        _vClients = _LoadClientsDataFromFile();
+        for (clsBankClient &client:_vClients)
+        {
+	        if (client.getAccountNumber()==getAccountNumber())
+	        {
+                client._MarkedForDelete = true;
+                break;
+	        }
+        }
+        _SaveClientsDataToFile(_vClients);
+        *this = _GetEmptyClientObject();
+        return true;
+
+        
     }
     enum enSaveResults { svFailedEmptyObject = 0,svSucceeded=1, svFailedAccountNumberExists=2};
     enSaveResults save()
