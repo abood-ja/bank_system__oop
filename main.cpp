@@ -2,7 +2,7 @@
 #include "clsBankClient.h"
 #include "clsInputValidate.h"
 #include "clsUtil.h"
-
+#include "clsMainScreen.h"
 void readClientInfo(clsBankClient &client)
 {
 	cout << "\nEnter FirstName: ";
