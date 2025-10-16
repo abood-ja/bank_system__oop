@@ -1,5 +1,6 @@
 #pragma once
 #include "clsScreen.h"
+#include "clsClientListScreen.h"
 
 class clsMainScreen:protected clsScreen
 {
@@ -18,7 +19,7 @@ private:
     }
     static void _ShowAllClientsScreen()
     {
-        cout << "\nClient List Screen Will be here...\n";
+        clsClientListScreen::showClientsList();
     }
     static void _ShowAddNewClientsScreen()
     {
@@ -68,12 +69,12 @@ private:
             break;
 	    case eAddNewClient:
             system("cls");
-            _ShowAllClientsScreen();
+            _ShowAddNewClientsScreen();
             _GoBackToMainMenu();
             break;
 	    case eDeleteClient:
             system("cls");
-            _ShowDeleteClientScreen();
+            _ShowAddNewClientsScreen();
             _GoBackToMainMenu();
             break;
 	    case eUpdateClient:

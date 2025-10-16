@@ -178,7 +178,7 @@ void showTotalBalances()
 }
 int main()
 {
-	showTotalBalances();
+	clsMainScreen::showMainMenu();
 	system("pause>0");
 	return 0;
 }
