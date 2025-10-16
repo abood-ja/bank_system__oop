@@ -111,7 +111,7 @@ public:
 		string title = "\t  Add New User Screen";
 		_DrawScreenHeader(title);
 		string userName;
-		cout << "\nPlease enter account Number: ";
+		cout << "\nPlease enter Account userName: ";
 		userName = clsInputValidate::ReadString();
 		while (clsUser::isUserExist(userName))
 		{

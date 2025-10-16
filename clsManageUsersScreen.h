@@ -2,6 +2,7 @@
 #include "clsScreen.h"
 #include "clsUserListScreen.h"
 #include "clsAddNewUserScreen.h"
+#include "clsDeleteUserScreen.h"
 class clsManageUsersScreen:protected clsScreen
 {
 private:
@@ -58,7 +59,7 @@ private:
 		clsAddNewUserScreen::ShowAddNewUserScreen();
 	}
 	static void _ShowDeleteUserScreen() {
-		cout << "\nDelete User screen Will be here...\n";
+		clsDeleteUserScreen::showDeleteUserScreen();
 
 	}
 	static void _ShowUpdateUserScreen() {
@@ -82,7 +83,7 @@ public:
 		cout << setw(37) << left << "" << "\t[3] Delete User.\n";
 		cout << setw(37) << left << "" << "\t[4] Update User.\n";
 		cout << setw(37) << left << "" << "\t[5] Find User.\n";
-		cout << setw(37) << left << "" << "\t[6] Main Menue.\n";
+		cout << setw(37) << left << "" << "\t[6] Main Menu.\n";
 		cout << setw(37) << left << "" << "===========================================\n";
 		_PerformManageUsersMenuOption((enManageUsersMenueOptions)_ReadManageUsersMenuOption());
 	}

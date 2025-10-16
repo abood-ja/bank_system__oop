@@ -238,7 +238,7 @@ public:
 	{
 		return _LoadUsersDataFromFile();
 	}
-	bool _Delete()
+	bool Delete()
 	{
 		vector <clsUser> vUsers;
 		vUsers = _LoadUsersDataFromFile();
