@@ -30,6 +30,7 @@ private:
 		cout << "\nBalance     : " << client.getAccountBalance();
 		cout << "\n___________________\n";
 	}
+
 public:
 	static void showUpdateClientScreen() {
 		string title = "\t  Update Client Screen";
@@ -55,17 +56,11 @@ public:
 
         if (Answer == 'y' || Answer == 'Y')
         {
-
             cout << "\n\nUpdate Client Info:";
             cout << "\n____________________\n";
-
-
             readClientInfo(Client1);
-
             clsBankClient::enSaveResults SaveResult;
-
             SaveResult = Client1.save();
-
             switch (SaveResult)
             {
             case  clsBankClient::enSaveResults::svSucceeded:
