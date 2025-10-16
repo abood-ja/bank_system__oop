@@ -223,6 +223,11 @@ public:
 
         
     }
+    void Deposit(double Amount)
+    {
+        _AccountBalance += Amount;
+        save();
+    }
     enum enSaveResults { svFailedEmptyObject = 0,svSucceeded=1, svFailedAccountNumberExists=2};
     enSaveResults save()
     {

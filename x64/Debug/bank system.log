@@ -26,9 +26,6 @@ C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsInputValidate.h
 C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsUtil.h(64,5): warning C4102: 'defualt': unreferenced label
   (compiling source file 'main.cpp')
   
-C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsShowTransactionsScreen.h(18,11): warning C4129: 'D': unrecognized character escape sequence
-  (compiling source file 'main.cpp')
-  
 C:\Users\abood\Github\bank_system_oop\bank system\bank system\main.cpp(46,53): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsBankClient.h(248,1): warning C4715: 'clsBankClient::save': not all control paths return a value
+C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsBankClient.h(253,1): warning C4715: 'clsBankClient::save': not all control paths return a value
   bank system.vcxproj -> C:\Users\abood\Github\bank_system_oop\bank system\x64\Debug\bank system.exe
