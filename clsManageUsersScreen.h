@@ -1,6 +1,7 @@
 #pragma once
 #include "clsScreen.h"
 #include "clsUserListScreen.h"
+#include "clsAddNewUserScreen.h"
 class clsManageUsersScreen:protected clsScreen
 {
 private:
@@ -54,8 +55,7 @@ private:
 		clsUsersListScreen::showClientListScreen();
 	}
 	static void _ShowAddNewUserScreen() {
-		cout << "\nAdd New User screen Will be here...\n";
-
+		clsAddNewUserScreen::ShowAddNewUserScreen();
 	}
 	static void _ShowDeleteUserScreen() {
 		cout << "\nDelete User screen Will be here...\n";

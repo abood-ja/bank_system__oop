@@ -30,4 +30,5 @@ C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsTotalBalanceScr
   (compiling source file 'main.cpp')
   
 C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsBankClient.h(263,1): warning C4715: 'clsBankClient::save': not all control paths return a value
+C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsUser.h(227,1): warning C4715: 'clsUser::save': not all control paths return a value
   bank system.vcxproj -> C:\Users\abood\Github\bank_system_oop\bank system\x64\Debug\bank system.exe
