@@ -86,22 +86,6 @@ private:
 		}
 		_SaveUsersDataToFile(vUsers);
 	}
-	bool _Delete()
-	{
-		vector <clsUser> vUsers;
-		vUsers = _LoadUsersDataFromFile();
-		for (clsUser &user:vUsers)
-		{
-			if (user.userName==_UserName)
-			{
-				user._MarkedForDelete = true;
-				break;
-			}
-		}
-		_SaveUsersDataToFile(vUsers);
-		*this = _GetEmptyUserObject();
-		return true;
-	}
 	void _AddDataLineToFile(string stDataLine)
 	{
 		fstream myFile;
@@ -249,6 +233,22 @@ public:
 	static vector <clsUser> getUsersList()
 	{
 		return _LoadUsersDataFromFile();
+	}
+	bool _Delete()
+	{
+		vector <clsUser> vUsers;
+		vUsers = _LoadUsersDataFromFile();
+		for (clsUser& user : vUsers)
+		{
+			if (user.userName == _UserName)
+			{
+				user._MarkedForDelete = true;
+				break;
+			}
+		}
+		_SaveUsersDataToFile(vUsers);
+		*this = _GetEmptyUserObject();
+		return true;
 	}
 	__declspec(property(get = getUserName, put = setUserName)) string userName;
 	__declspec(property(get = getPassword, put = setPassword)) string password;

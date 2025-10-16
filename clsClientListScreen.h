@@ -38,7 +38,6 @@ public:
 
             for (clsBankClient Client : vClients)
             {
-
                 PrintClientRecordLine(Client);
                 cout << endl;
             }

@@ -18,6 +18,18 @@ private:
         vector<string>vClientData = clsString::Split(line, seperator);
         return clsBankClient(enMode::UpdateMode, vClientData[0], vClientData[1], vClientData[2], vClientData[3], vClientData[4], vClientData[5], stod(vClientData[6]));
     }
+    static string _ConvertClientObjectToLine(clsBankClient client, string seperator = "#//#")
+    {
+        string clientRecord = "";
+        clientRecord += client.firstName + seperator;
+        clientRecord += client.lastName + seperator;
+        clientRecord += client.email + seperator;
+        clientRecord += client.phone + seperator;
+        clientRecord += client.getAccountNumber() + seperator;
+        clientRecord += client.pinCode + seperator;
+        clientRecord += to_string(client.accountBalance);
+        return clientRecord;
+    }
     static clsBankClient _GetEmptyClientObject()
     {
         return clsBankClient(enMode::EmptyMode, "", "", "", "", "", "", 0);
@@ -40,18 +52,6 @@ private:
         }
         return vClients;
 
-    }
-    static string _ConvertClientObjectToLine(clsBankClient client, string seperator = "#//#")
-    {
-        string clientRecord = "";
-        clientRecord += client.firstName + seperator;
-        clientRecord += client.lastName + seperator;
-        clientRecord += client.email + seperator;
-        clientRecord += client.phone + seperator;
-        clientRecord += client.getAccountNumber() + seperator;
-        clientRecord += client.pinCode + seperator;
-        clientRecord += to_string(client.accountBalance);
-        return clientRecord;
     }
     static void _SaveClientsDataToFile(vector<clsBankClient>vClients)
     {
@@ -221,7 +221,6 @@ public:
         *this = _GetEmptyClientObject();
         return true;
 
-        
     }
     void deposit(double amount)
     {
