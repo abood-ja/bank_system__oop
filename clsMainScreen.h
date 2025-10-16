@@ -1,7 +1,7 @@
 #pragma once
 #include "clsScreen.h"
 #include "clsClientListScreen.h"
-
+#include "clsAddNewClientScreen.h"
 class clsMainScreen:protected clsScreen
 {
 private:
@@ -23,7 +23,7 @@ private:
     }
     static void _ShowAddNewClientsScreen()
     {
-        cout << "\nAdd New Client Screen Will be here...\n";
+        clsAddNewClientScreen::showAddNewClientScreen();
     }
     static void _ShowDeleteClientScreen()
     {

@@ -1,4 +1,10 @@
 #pragma once
+#include <iomanip>
+#include "clsBankClient.h"
+#include "clsInputValidate.h"
+#include "clsUtil.h"
+#include "clsMainScreen.h"
+#include <iostream>
 class clsScreen
 {
 protected:

@@ -20,10 +20,7 @@ public:
         vector <clsBankClient> vClients = clsBankClient::getClientList();
         string title = "\t  Client List Screen";
         string subTitle = "\t    (" + to_string(vClients.size()) + ") Client(s).";
-
         _DrawScreenHeader(title, subTitle);
-
-
         cout << setw(8) << left << "" << "\n\t_______________________________________________________";
         cout << "_________________________________________\n" << endl;
         cout << setw(8) << left << "" << "| " << left << setw(15) << "Accout Number";

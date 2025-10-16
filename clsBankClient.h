@@ -154,21 +154,6 @@ public:
     {
         return _AccountBalance;
     }
-    void print()
-    {
-        cout << "\nClient Card:";
-        cout << "\n-----------------------------------";
-        cout << "\nFirst Name: " << firstName;
-        cout << "\nLast Name : " << lastName;
-        cout << "\nFull Name : " << getFullName();
-        cout << "\nEmail     : " << email;
-        cout << "\nPhone     : " << phone;
-        cout << "\nAcc Number: " << getAccountNumber();
-        cout << "\nPassword  : " << pinCode;
-        cout << "\nBalance   : " << accountBalance;
-        cout << "\n-----------------------------------";
-
-    }
     static clsBankClient find(string accountNumber)
     {
         vector<clsBankClient> vClients;
@@ -270,5 +255,4 @@ public:
     }
     __declspec(property(get = getAccountBalance, put = setAccountBalance))double accountBalance;
     __declspec(property(get = getPinCode, put = setPinCode))string pinCode;
-
 };
