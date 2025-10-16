@@ -4,6 +4,7 @@
 #include "clsAddNewUserScreen.h"
 #include "clsDeleteUserScreen.h"
 #include "clsUpdateUserScreen.h"
+#include "clsFindUserScreen.h"
 class clsManageUsersScreen:protected clsScreen
 {
 private:
@@ -68,8 +69,7 @@ private:
 
 	}
 	static void _ShowFindUserScreen() {
-		cout << "\nFind User screen Will be here...\n";
-
+		clsFindUserScreen::ShowFindUserScreen();
 	}
 public:
 	static void showManageUsersScreen() {
