@@ -33,6 +33,10 @@ private:
 	}
 public:
 	static void showAddNewClientScreen() {
+		if (!CheckAccessRights(clsUser::enPermissions::pAddNewClient))
+		{
+			return;
+		}
 		string title = "\t  Add New Client Screen";
 		_DrawScreenHeader(title);
 		string accNumber;

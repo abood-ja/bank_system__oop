@@ -50,6 +50,10 @@ private:
 	}
 public:
 	static void showTranscationsScreen() {
+		if (!CheckAccessRights(clsUser::enPermissions::pTranactions))
+		{
+			return;
+		}
 		system("cls");
 		string title = "\t  Transactions Screen";
 		_DrawScreenHeader(title);

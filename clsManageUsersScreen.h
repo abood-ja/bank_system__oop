@@ -73,6 +73,10 @@ private:
 	}
 public:
 	static void showManageUsersScreen() {
+		if (!CheckAccessRights(clsUser::enPermissions::pManageUsers))
+		{
+			return;
+		}
 		system("cls");
 		string title = "\t Manage Users Screen";
 		_DrawScreenHeader(title);

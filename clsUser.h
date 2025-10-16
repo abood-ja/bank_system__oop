@@ -253,6 +253,17 @@ public:
 		*this = _GetEmptyUserObject();
 		return true;
 	}
+	bool CheckAccessPermission(enPermissions permission)
+	{
+		if (this->getPermissions() == enPermissions::eAll)
+			return true;
+
+		if ((permission & this->getPermissions()) == permission)
+			return true;
+		else
+			return false;
+
+	}
 	__declspec(property(get = getUserName, put = setUserName)) string userName;
 	__declspec(property(get = getPassword, put = setPassword)) string password;
 	__declspec(property(get = getPermissions, put = setPermissions)) int permissions;
