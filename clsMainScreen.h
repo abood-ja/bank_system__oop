@@ -6,6 +6,7 @@
 #include "clsUpdateClientScreen.h"
 #include "clsFindClientScreen.h"
 #include "clsTransactionsScreen.h"
+#include "clsManageUsersScreen.h"
 class clsMainScreen:protected clsScreen
 {
 private:
@@ -47,7 +48,7 @@ private:
     }
     static void _ShowManageUsersMenue()
     {
-        cout << "\nUsers Menue Will be here...\n";
+        clsManageUsersScreen::showManageUsersScreen();
 
     }
     static void _ShowEndScreen()
@@ -57,7 +58,7 @@ private:
     }
     static void _GoBackToMainMenu()
     {
-        cout << setw(37) << left << "" << "\n\tPress any key to go back to Main Menue...\n";
+        cout << setw(37) << left << "" << "\nPress any key to go back to Main Menue...";
         system("pause>0");
         showMainMenu();
     }
