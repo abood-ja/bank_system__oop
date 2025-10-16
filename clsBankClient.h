@@ -223,10 +223,21 @@ public:
 
         
     }
-    void Deposit(double Amount)
+    void deposit(double amount)
     {
-        _AccountBalance += Amount;
+        _AccountBalance += amount;
         save();
+    }
+    bool withdraw(double amount)
+    {
+        if (amount > getAccountBalance())
+            return false;
+        else
+        {
+        _AccountBalance -= amount;
+        save();
+        return true;
+        }
     }
     enum enSaveResults { svFailedEmptyObject = 0,svSucceeded=1, svFailedAccountNumberExists=2};
     enSaveResults save()

@@ -1,6 +1,7 @@
 #pragma once
 #include "clsScreen.h"
 #include "clsShowDepositScreen.h"
+#include "clsShowWithdrawScreen.h"
 class clsShowTransactionsScreen:protected clsScreen
 {
 private:
@@ -11,7 +12,7 @@ private:
 		return Choice;
 	}
 	static void _GoBackToTransactionsMenu() {
-		cout << setw(37) << left << "" << "\n\tPress any key to go back to Transactions Menu...\n";
+		cout << setw(37) << left << "" << "\nPress any key to go back to Transactions Menu...";
 		system("pause>0");
 		showTranscationsScreen();
 	}
@@ -19,7 +20,7 @@ private:
 		clsShowDepositScreen::showDepositScreen();
 	}
 	static void _ShowWithdrawScreen() {
-		cout << "\nWithdraw Menu Will be here...\n";
+		clsShowWithdrawScreen::showWithdrawScreen();
 	}
 	static void _ShowTotalBalancesScreen() {
 		cout << "\nTotal Balances Screen Will be here...\n";
