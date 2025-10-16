@@ -6,7 +6,8 @@
 
 int main()
 {
-	/*clsMainScreen::showMainMenu();*/
-	clsLoginScreen::showLoginScreen();
-	return 0;
+	while (true) {
+		clsLoginScreen::showLoginScreen();
+	}
+		return 0;
 }
