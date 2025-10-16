@@ -3,49 +3,6 @@
 #include "clsInputValidate.h"
 #include "clsUtil.h"
 #include "clsMainScreen.h"
-void readClientInfo(clsBankClient &client)
-{
-	cout << "\nEnter FirstName: ";
-	client.firstName = clsInputValidate::ReadString();
-	cout << "\nEnter LastName: ";
-	client.lastName = clsInputValidate::ReadString();
-	cout << "\nEnter Email: ";
-	client.email = clsInputValidate::ReadString();
-	cout << "\nEnter Phone: ";
-	client.phone = clsInputValidate::ReadString();
-	cout << "\nEnter PinCode: ";
-	client.pinCode = clsInputValidate::ReadString();
-	cout << "\nEnter AccountBalance: ";
-	client.accountBalance = clsInputValidate::ReadDblNumber();
-}
-//void updateClient()
-//{
-//	string accountNumber = "";
-//	cout << "\nPlease enter client account number: ";
-//	accountNumber = clsInputValidate::ReadString();
-//	while (!clsBankClient::isClientExist(accountNumber))
-//	{
-//		cout << "\nAccount number is not found ,enter another one: ";
-//		accountNumber = clsInputValidate::ReadString();
-//	}
-//	clsBankClient client = clsBankClient::find(accountNumber);
-//	client.print();
-//	cout << "\n\nUpdate client info:";
-//	cout << "\n____________________\n";
-//	readClientInfo(client);
-//	clsBankClient::enSaveResults saveResult;
-//	saveResult = client.save();
-//	switch (saveResult)
-//	{
-//	case clsBankClient::svSucceeded:
-//		cout << "\nAccount updated successfully :-)\n";
-//		client.print();
-//		break;
-//	case clsBankClient::svFailedEmptyObject:
-//		cout << "\nError account was not saved because it's empty";
-//		break;
-//	}
-//}
 //void addNewClient()
 //{
 //	
@@ -118,36 +75,6 @@ void PrintClientRecordBalanceLine(clsBankClient client)
 //		}
 //	}
 //}
-void showClientsList()
-{
-	vector<clsBankClient>vClients = clsBankClient::getClientList();
-	cout << "\n\t\t\t\t\tClient List (" << vClients.size() << ") Client(s).";
-	cout << "\n_______________________________________________________";
-	cout << "_________________________________________\n" << endl;
-
-	cout << "| " << left << setw(15) << "Accout Number";
-	cout << "| " << left << setw(20) << "Client Name";
-	cout << "| " << left << setw(12) << "Phone";
-	cout << "| " << left << setw(20) << "Email";
-	cout << "| " << left << setw(10) << "Pin Code";
-	cout << "| " << left << setw(12) << "Balance";
-	cout << "\n_______________________________________________________";
-	cout << "_________________________________________\n" << endl;
-
-	if (vClients.size() == 0)
-		cout << "\t\t\t\tNo Clients Available In the System!";
-	else
-
-		for (clsBankClient Client : vClients)
-		{
-
-			PrintClientRecordLine(Client);
-			cout << endl;
-		}
-
-	cout << "\n_______________________________________________________";
-	cout << "_________________________________________\n" << endl;
-}
 void showTotalBalances()
 {
 	vector<clsBankClient>vClients = clsBankClient::getClientList();
