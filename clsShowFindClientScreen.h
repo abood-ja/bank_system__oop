@@ -16,6 +16,7 @@ private:
 		cout << "\nBalance     : " << client.getAccountBalance();
 		cout << "\n___________________\n";
 	}
+
 public:
 	static void showFindClientScreen() {
 		string title = "\t  Find Client Screen";

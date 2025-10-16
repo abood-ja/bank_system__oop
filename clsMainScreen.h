@@ -5,6 +5,7 @@
 #include "clsDeleteClientScreen.h"
 #include "clsUpdateClientScreen.h"
 #include "clsShowFindClientScreen.h"
+#include "clsShowTransactionsScreen.h"
 class clsMainScreen:protected clsScreen
 {
 private:
@@ -42,7 +43,7 @@ private:
     }
     static void _ShowTransactionsMenu()
     {
-        cout << "\nTransactions Menue Will be here...\n";
+        clsShowTransactionsScreen::showTranscationsScreen();
     }
     static void _ShowManageUsersMenue()
     {
