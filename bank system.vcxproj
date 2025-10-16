@@ -134,6 +134,7 @@
     <ClInclude Include="clsScreen.h" />
     <ClInclude Include="clsShowDepositScreen.h" />
     <ClInclude Include="clsShowFindClientScreen.h" />
+    <ClInclude Include="clsShowTotalBalanceScreen.h" />
     <ClInclude Include="clsShowTransactionsScreen.h" />
     <ClInclude Include="clsShowWithdrawScreen.h" />
     <ClInclude Include="clsString.h" />
