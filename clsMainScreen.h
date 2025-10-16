@@ -2,6 +2,7 @@
 #include "clsScreen.h"
 #include "clsClientListScreen.h"
 #include "clsAddNewClientScreen.h"
+#include "clsDeleteClientScreen.h"
 class clsMainScreen:protected clsScreen
 {
 private:
@@ -27,8 +28,7 @@ private:
     }
     static void _ShowDeleteClientScreen()
     {
-        cout << "\nDelete Client Screen Will be here...\n";
-
+        clsDeleteClientScreen::showDeleteClientScreen();
     }
     static void _ShowUpdateClientScreen()
     {
@@ -74,7 +74,7 @@ private:
             break;
 	    case eDeleteClient:
             system("cls");
-            _ShowAddNewClientsScreen();
+            _ShowDeleteClientScreen();
             _GoBackToMainMenu();
             break;
 	    case eUpdateClient:

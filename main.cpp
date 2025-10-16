@@ -18,63 +18,63 @@ void readClientInfo(clsBankClient &client)
 	cout << "\nEnter AccountBalance: ";
 	client.accountBalance = clsInputValidate::ReadDblNumber();
 }
-void updateClient()
-{
-	string accountNumber = "";
-	cout << "\nPlease enter client account number: ";
-	accountNumber = clsInputValidate::ReadString();
-	while (!clsBankClient::isClientExist(accountNumber))
-	{
-		cout << "\nAccount number is not found ,enter another one: ";
-		accountNumber = clsInputValidate::ReadString();
-	}
-	clsBankClient client = clsBankClient::find(accountNumber);
-	client.print();
-	cout << "\n\nUpdate client info:";
-	cout << "\n____________________\n";
-	readClientInfo(client);
-	clsBankClient::enSaveResults saveResult;
-	saveResult = client.save();
-	switch (saveResult)
-	{
-	case clsBankClient::svSucceeded:
-		cout << "\nAccount updated successfully :-)\n";
-		client.print();
-		break;
-	case clsBankClient::svFailedEmptyObject:
-		cout << "\nError account was not saved because it's empty";
-		break;
-	}
-}
-void addNewClient()
-{
-	
-	string accNumber;
-	cout << "\nPlease enter account Number: ";
-	accNumber = clsInputValidate::ReadString();
-	while (clsBankClient::isClientExist(accNumber))
-	{
-		cout << "\nAccount number is already used, choose another one: ";
-		accNumber = clsInputValidate::ReadString();
-	}
-	clsBankClient newClient = clsBankClient::getAddNewClientObject(accNumber);
-	readClientInfo(newClient);
-	clsBankClient::enSaveResults saveResult;
-	saveResult = newClient.save();
-	switch (saveResult)
-	{
-	case clsBankClient::svSucceeded:
-		cout << "\nAccount Added successfully :-)\n";
-		newClient.print();
-		break;
-	case clsBankClient::svFailedEmptyObject:
-		cout << "\nError account was not saved because it's empty";
-		break;
-	case clsBankClient::svFailedAccountNumberExists:
-		cout << "\nError account was not saved because account number is used!\n";
-		break;
-	}
-}
+//void updateClient()
+//{
+//	string accountNumber = "";
+//	cout << "\nPlease enter client account number: ";
+//	accountNumber = clsInputValidate::ReadString();
+//	while (!clsBankClient::isClientExist(accountNumber))
+//	{
+//		cout << "\nAccount number is not found ,enter another one: ";
+//		accountNumber = clsInputValidate::ReadString();
+//	}
+//	clsBankClient client = clsBankClient::find(accountNumber);
+//	client.print();
+//	cout << "\n\nUpdate client info:";
+//	cout << "\n____________________\n";
+//	readClientInfo(client);
+//	clsBankClient::enSaveResults saveResult;
+//	saveResult = client.save();
+//	switch (saveResult)
+//	{
+//	case clsBankClient::svSucceeded:
+//		cout << "\nAccount updated successfully :-)\n";
+//		client.print();
+//		break;
+//	case clsBankClient::svFailedEmptyObject:
+//		cout << "\nError account was not saved because it's empty";
+//		break;
+//	}
+//}
+//void addNewClient()
+//{
+//	
+//	string accNumber;
+//	cout << "\nPlease enter account Number: ";
+//	accNumber = clsInputValidate::ReadString();
+//	while (clsBankClient::isClientExist(accNumber))
+//	{
+//		cout << "\nAccount number is already used, choose another one: ";
+//		accNumber = clsInputValidate::ReadString();
+//	}
+//	clsBankClient newClient = clsBankClient::getAddNewClientObject(accNumber);
+//	readClientInfo(newClient);
+//	clsBankClient::enSaveResults saveResult;
+//	saveResult = newClient.save();
+//	switch (saveResult)
+//	{
+//	case clsBankClient::svSucceeded:
+//		cout << "\nAccount Added successfully :-)\n";
+//		newClient.print();
+//		break;
+//	case clsBankClient::svFailedEmptyObject:
+//		cout << "\nError account was not saved because it's empty";
+//		break;
+//	case clsBankClient::svFailedAccountNumberExists:
+//		cout << "\nError account was not saved because account number is used!\n";
+//		break;
+//	}
+//}
 void PrintClientRecordLine(clsBankClient client)
 {
 	cout << "| " << setw(15) << left << client.getAccountNumber();
@@ -83,7 +83,6 @@ void PrintClientRecordLine(clsBankClient client)
 	cout << "| " << setw(20) << left << client.getEmail();
 	cout << "| " << setw(10) << left << client.getPinCode();
 	cout << "| " << setw(12) << left << client.getAccountBalance();
-	
 }
 void PrintClientRecordBalanceLine(clsBankClient client)
 {
@@ -91,34 +90,34 @@ void PrintClientRecordBalanceLine(clsBankClient client)
 	cout << "| " << setw(40) << left << client.getFullName();
 	cout << "| " << setw(12) << left << client.getAccountBalance();
 }
-void deleteClient()
-{
-	string accountNumber;
-	cout << "\nPlease enter account Number: ";
-	accountNumber = clsInputValidate::ReadString();
-	while (!clsBankClient::isClientExist(accountNumber))
-	{
-		cout << "\nAccount number is not found ,enter another one: ";
-		accountNumber = clsInputValidate::ReadString();
-	}
-	clsBankClient client = clsBankClient::find(accountNumber);
-	client.print();
-	cout << "\nAre you sure you want to delete this client y/n? ";
-	char answer = 'n';
-	cin >> answer;
-	if (answer=='y'||answer=='Y')
-	{
-		if (client.Delete())
-		{
-			cout << "\nClient Deleted Successfully :-)\n";
-			client.print();
-		}
-		else
-		{
-			cout << "\nError client was not deleted\n";
-		}
-	}
-}
+//void deleteClient()
+//{
+//	string accountNumber;
+//	cout << "\nPlease enter account Number: ";
+//	accountNumber = clsInputValidate::ReadString();
+//	while (!clsBankClient::isClientExist(accountNumber))
+//	{
+//		cout << "\nAccount number is not found ,enter another one: ";
+//		accountNumber = clsInputValidate::ReadString();
+//	}
+//	clsBankClient client = clsBankClient::find(accountNumber);
+//	client.print();
+//	cout << "\nAre you sure you want to delete this client y/n? ";
+//	char answer = 'n';
+//	cin >> answer;
+//	if (answer=='y'||answer=='Y')
+//	{
+//		if (client.Delete())
+//		{
+//			cout << "\nClient Deleted Successfully :-)\n";
+//			client.print();
+//		}
+//		else
+//		{
+//			cout << "\nError client was not deleted\n";
+//		}
+//	}
+//}
 void showClientsList()
 {
 	vector<clsBankClient>vClients = clsBankClient::getClientList();
