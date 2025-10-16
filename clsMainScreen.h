@@ -4,8 +4,8 @@
 #include "clsAddNewClientScreen.h"
 #include "clsDeleteClientScreen.h"
 #include "clsUpdateClientScreen.h"
-#include "clsShowFindClientScreen.h"
-#include "clsShowTransactionsScreen.h"
+#include "clsFindClientScreen.h"
+#include "clsTransactionsScreen.h"
 class clsMainScreen:protected clsScreen
 {
 private:
@@ -39,11 +39,11 @@ private:
     }
     static void _ShowFindClientScreen()
     {
-        clsShowFindClientScreen::showFindClientScreen();
+        clsFindClientScreen::showFindClientScreen();
     }
     static void _ShowTransactionsMenu()
     {
-        clsShowTransactionsScreen::showTranscationsScreen();
+        clsTransactionsScreen::showTranscationsScreen();
     }
     static void _ShowManageUsersMenue()
     {

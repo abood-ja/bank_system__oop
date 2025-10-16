@@ -1,9 +1,9 @@
 #pragma once
 #include "clsScreen.h"
-#include "clsShowDepositScreen.h"
-#include "clsShowWithdrawScreen.h"
-#include "clsShowTotalBalanceScreen.h"
-class clsShowTransactionsScreen:protected clsScreen
+#include "clsDepositScreen.h"
+#include "clsWithdrawScreen.h"
+#include "clsTotalBalanceScreen.h"
+class clsTransactionsScreen:protected clsScreen
 {
 private:
 	enum enTransactionsMenuOptions { Deposit = 1, Withdraw = 2, TotalBalance = 3, MainMenu = 4 };
@@ -18,33 +18,33 @@ private:
 		showTranscationsScreen();
 	}
 	static void _ShowDepositScreen() {
-		clsShowDepositScreen::showDepositScreen();
+		clsDepositScreen::showDepositScreen();
 	}
 	static void _ShowWithdrawScreen() {
-		clsShowWithdrawScreen::showWithdrawScreen();
+		clsWithdrawScreen::showWithdrawScreen();
 	}
 	static void _ShowTotalBalancesScreen() {
-		clsShowTotalBalanceScreen::showTotalBalancesScreen();
+		clsTotalBalanceScreen::showTotalBalancesScreen();
 	}
 	static void _PerformTransactionsMenuOption(enTransactionsMenuOptions option) {
 		switch (option)
 		{
-		case clsShowTransactionsScreen::Deposit:
+		case clsTransactionsScreen::Deposit:
 			system("cls");
 			_ShowDepositScreen();
 			_GoBackToTransactionsMenu();
 			break;
-		case clsShowTransactionsScreen::Withdraw:
+		case clsTransactionsScreen::Withdraw:
 			system("cls");
 			_ShowWithdrawScreen();
 			_GoBackToTransactionsMenu();
 			break;
-		case clsShowTransactionsScreen::TotalBalance:
+		case clsTransactionsScreen::TotalBalance:
 			system("cls");
 			_ShowTotalBalancesScreen();
 			_GoBackToTransactionsMenu();
 			break;
-		case clsShowTransactionsScreen::MainMenu:
+		case clsTransactionsScreen::MainMenu:
 			break;
 		}
 	}

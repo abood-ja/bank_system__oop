@@ -1,6 +1,6 @@
 #pragma once
 #include "clsScreen.h"
-class clsShowDepositScreen :protected clsScreen
+class clsDepositScreen :protected clsScreen
 {
 private:
 	static double _ReadAmountOfMoneyToDeposit() {

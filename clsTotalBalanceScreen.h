@@ -1,6 +1,6 @@
 #pragma once
 #include "clsScreen.h"
-class clsShowTotalBalanceScreen:protected clsScreen
+class clsTotalBalanceScreen:protected clsScreen
 {
 private:
 	static void _PrintClientRecordBalanceLine(clsBankClient client)

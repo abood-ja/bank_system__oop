@@ -1,6 +1,6 @@
 #pragma once
 #include "clsScreen.h"
-class clsShowWithdrawScreen:protected clsScreen
+class clsWithdrawScreen :protected clsScreen
 {
 private:
 	static string _ReadAccountNumber()

@@ -51,19 +51,19 @@
     <ClInclude Include="clsUpdateClientScreen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="clsShowFindClientScreen.h">
+    <ClInclude Include="clsFindClientScreen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="clsShowTransactionsScreen.h">
+    <ClInclude Include="clsTransactionsScreen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="clsShowDepositScreen.h">
+    <ClInclude Include="clsDepositScreen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="clsShowWithdrawScreen.h">
+    <ClInclude Include="clsWithdrawScreen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="clsShowTotalBalanceScreen.h">
+    <ClInclude Include="clsTotalBalanceScreen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

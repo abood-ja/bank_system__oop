@@ -1,6 +1,6 @@
 #pragma once
 #include "clsScreen.h"
-class clsShowFindClientScreen:protected clsScreen
+class clsFindClientScreen:protected clsScreen
 {
 private:
 	static void _PrintClient(clsBankClient& client) {
