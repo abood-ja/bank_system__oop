@@ -3,7 +3,6 @@
 #include <string>
 #include "clsPerson.h"
 #include "clsString.h"
-
 class clsUser:public clsPerson
 {
 private:
