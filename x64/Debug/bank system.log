@@ -45,6 +45,9 @@ C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsTotalBalanceScr
 C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsFindCurrencyScreen.h(32,9): warning C4101: 'findBy': unreferenced local variable
   (compiling source file 'main.cpp')
   
+C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsUpdateCurrencyRateScreen.h(21,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
 C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsLoginScreen.h(58,1): warning C4715: 'clsLoginScreen::_Login': not all control paths return a value
 C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsBankClient.h(314,1): warning C4715: 'clsBankClient::save': not all control paths return a value
 C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsUser.h(270,1): warning C4715: 'clsUser::save': not all control paths return a value
