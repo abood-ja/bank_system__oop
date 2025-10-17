@@ -1,14 +1,14 @@
 #pragma once
 #include <iostream>
+#include "clsInterfCommunication.h"
 using namespace std;
-class clsPerson
+class clsPerson :public clsInterfCommunication
 {
 private:
     string _FirstName;
     string _LastName;
     string _Email;
     string _Phone;
-
 public:
     clsPerson(string firstName, string lastName, string email, string phone)
     {
@@ -52,6 +52,18 @@ public:
     string getPhone()
     {
         return _Phone;
+    }
+    void sendEmail(string title, string body)
+    {
+
+    }
+	void sendFax(string title, string body)
+    {
+	    
+    }
+    void sendSMS(string title,string body)
+    {
+	    
     }
     __declspec(property(get = getFirstName, put = setFirstName))string firstName;
     __declspec(property(get = getLastName, put = setLastName))string lastName;
