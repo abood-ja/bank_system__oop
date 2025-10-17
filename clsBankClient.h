@@ -298,6 +298,47 @@ public:
             }
 	    }
     }
+    struct  stTransferLogRecord
+    {
+        string dateTime;
+        string transferFrom;
+        string transferTo;
+        double amount;
+        double transferFromBalance;
+        double transferToBalance;
+        string userName;
+    };
+    static stTransferLogRecord _ConvertTransferLogLineToRecord(string Line, string Seperator = "#//#")
+    {
+        stTransferLogRecord transferLogRecord;
+        vector <string> TransferRegisterDataLine = clsString::Split(Line, Seperator);
+        transferLogRecord.dateTime = TransferRegisterDataLine[0];
+        transferLogRecord.transferFrom = TransferRegisterDataLine[1];
+        transferLogRecord.transferTo = TransferRegisterDataLine[2];
+        transferLogRecord.amount = stod(TransferRegisterDataLine[3]);
+        transferLogRecord.transferFromBalance = stod(TransferRegisterDataLine[4]);
+        transferLogRecord.transferToBalance = stod(TransferRegisterDataLine[5]);
+        transferLogRecord.userName = TransferRegisterDataLine[6];
+        return transferLogRecord;
+    }
+    static vector< stTransferLogRecord> getTransferLogList()
+    {
+        vector<stTransferLogRecord>vTransferLogRecrods;
+        fstream myFile;
+        myFile.open("TransferLog.txt", ios::in);
+        if (myFile.is_open())
+        {
+            string Line;
+            stTransferLogRecord TransferLogRecord;
+            while (getline(myFile, Line))
+            {
+                TransferLogRecord = _ConvertTransferLogLineToRecord(Line);
+                vTransferLogRecrods.push_back(TransferLogRecord);
+            }
+            myFile.close();
+        }
+        return vTransferLogRecrods;
+    }
     static clsBankClient getAddNewClientObject(string accountNumber)
     {
         return clsBankClient(enMode::AddNewMode, "", "", "", "", accountNumber, "",0);

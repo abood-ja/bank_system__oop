@@ -38,7 +38,6 @@ private:
 		string password;
 		password = clsInputValidate::ReadString();
 		clsUser user = clsUser::find(userName, password);
-
 		while (user.isEmpty())
 		{
 			failedLoginCount++;
