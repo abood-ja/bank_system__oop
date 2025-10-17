@@ -105,6 +105,22 @@ public:
 	{
 		return _Rate;
 	}
+	double convertToUSD(double amount)
+	{
+		return (double)(amount / this->getRate());
+	}
+	double convertToOtherCurrency(double amount, clsCurrency currency2)
+	{
+		double amountInUSD = convertToUSD(amount);
+
+		if (currency2.getCode() == "USD")
+		{
+			return amountInUSD;
+		}
+
+		return (double)(amountInUSD * currency2.getRate());
+
+	}
 	void updateRate(double rate)
 	{
 		this->_Rate = rate;

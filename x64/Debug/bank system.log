@@ -48,6 +48,15 @@ C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsFindCurrencyScr
 C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsUpdateCurrencyRateScreen.h(21,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'main.cpp')
   
+C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsCurrencyCalculatorScreen.h(48,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsCurrencyCalculatorScreen.h(62,28): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsCurrencyCalculatorScreen.h(77,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
 C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsLoginScreen.h(58,1): warning C4715: 'clsLoginScreen::_Login': not all control paths return a value
 C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsBankClient.h(314,1): warning C4715: 'clsBankClient::save': not all control paths return a value
 C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsUser.h(270,1): warning C4715: 'clsUser::save': not all control paths return a value
