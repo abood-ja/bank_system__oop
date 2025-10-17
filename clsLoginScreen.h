@@ -5,23 +5,41 @@
 class clsLoginScreen:protected clsScreen
 {
 private:
-	static void _Login()
+	static bool _Login()
 	{
+		int failedLoginCount = 0;
 		cout << "Enter Username: ";
 		string userName;
 		userName = clsInputValidate::ReadString();
 		while (!clsUser::isUserExist(userName))
 		{
-			cout << "\nInvalid Username ,enter another one: ";
+			failedLoginCount++;
+			if (failedLoginCount == 3)
+			{
+				cout << "\nYou are locked after 3 failed trials!! \n\n";
+				system("pause>0");
+				return false;
+			}
+			cout << "\nInvalid Username ,You have "<<3-failedLoginCount<<" Trie(s)\nEnter another one: ";
 			userName = clsInputValidate::ReadString();
 		}
+		failedLoginCount = 0;
 		cout << "Enter Password: ";
 		string password;
 		password = clsInputValidate::ReadString();
 		clsUser user = clsUser::find(userName, password);
+
 		while (user.isEmpty())
 		{
-			cout << "Wrong password! ,Enter another one: ";
+			failedLoginCount++;
+			if (failedLoginCount==3)
+			{
+				cout << "\nYou are locked after 3 failed trials!! \n\n";
+				system("pause>0");
+				return false;
+			}
+			cout << "\nWrong Password! ,You have " << 3 - failedLoginCount << " Trie(s)\nEnter another one: ";
+
 			password = clsInputValidate::ReadString();
 			user = clsUser::find(userName, password);
 		}
@@ -29,11 +47,11 @@ private:
 		clsMainScreen::showMainMenu();
 	}
 public:
-	static void showLoginScreen()
+	static bool showLoginScreen()
 	{
 		system("cls");
 		string title = "\t  Login Screen";
 		_DrawScreenHeader(title);
-		_Login();
+		return _Login();
 	}
 };
