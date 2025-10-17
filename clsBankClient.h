@@ -238,6 +238,16 @@ public:
         return true;
         }
     }
+    bool transfer(double amount,clsBankClient destinationClient)
+    {
+	    if (amount>this->getAccountBalance())
+	    {
+            return false;
+	    }
+        withdraw(amount);
+        destinationClient.deposit(amount);
+        return true;
+    }
     enum enSaveResults { svFailedEmptyObject = 0,svSucceeded=1, svFailedAccountNumberExists=2};
     enSaveResults save()
     {

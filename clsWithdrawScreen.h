@@ -16,6 +16,15 @@ private:
 		amount = clsInputValidate::ReadDblNumber();
 		return amount;
 	}
+	static clsBankClient _GetAccountToWithDrawFrom()
+	{
+		string accountNumber = _ReadAccountNumber();
+		while (!clsBankClient::isClientExist(accountNumber)) {
+			cout << "\nClient with [" << accountNumber << "] does not exist.\n";
+			accountNumber = _ReadAccountNumber();
+		}
+		return clsBankClient::find(accountNumber);
+	}
 	static void _PrintClient(clsBankClient Client)
 	{
 		cout << "\nClient Card:";
@@ -35,12 +44,7 @@ public:
 	static void showWithdrawScreen() {
 		string title = "\t   Withdraw Screen";
 		_DrawScreenHeader(title);
-		string accountNumber = _ReadAccountNumber();
-		while (!clsBankClient::isClientExist(accountNumber)) {
-			cout << "\nClient with [" << accountNumber << "] does not exist.\n";
-			accountNumber = _ReadAccountNumber();
-		}
-		clsBankClient client = clsBankClient::find(accountNumber);
+		clsBankClient client = _GetAccountToWithDrawFrom();
 		_PrintClient(client);
 		double amount = _ReadAmountOfMoneyToWithDraw();
 		while (amount <= 0) {

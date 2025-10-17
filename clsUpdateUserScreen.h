@@ -104,7 +104,7 @@ private:
 		cin >> answer;
 		if (answer == 'y' || answer == 'Y')
 		{
-			permissions += clsUser::enPermissions::pLoginRegister;
+			permissions += clsUser::enPermissions::pShowLoginRegister;
 		}
 
 		return permissions;

@@ -108,10 +108,6 @@ private:
 		line += to_string(permissions);
 		return line;
 	}
-	enum enn
-	{
-		happy=1,sad=2
-	}; 
 public:
 	clsUser(enMode Mode, string FirstName, string LastName,
 		string Email, string Phone, string UserName, string Password,
@@ -125,7 +121,7 @@ public:
 	}
 	enum enPermissions {
 		eAll = -1, pListClients = 1, pAddNewClient = 2, pDeleteClient = 4,
-		pUpdateClients = 8, pFindClient = 16, pTranactions = 32, pManageUsers = 64,pLoginRegister=128
+		pUpdateClients = 8, pFindClient = 16, pTranactions = 32, pManageUsers = 64,pShowLoginRegister=128
 	};
 	struct stLoginRegisterRecord
 	{
