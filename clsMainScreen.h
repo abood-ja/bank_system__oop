@@ -10,7 +10,6 @@
 #include "clsLoginRegisterScreen.h"
 #include "clsCurrencyExchangeMainScreen.h"
 #include "global.h"
-
 class clsMainScreen:protected clsScreen
 {
 private:

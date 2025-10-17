@@ -1,6 +1,7 @@
 #pragma once
 #include "clsScreen.h"
-
+#include "clsCurrencyListScreen.h"
+#include "clsFindCurrencyScreen.h"
 class clsCurrencyExchangeMainScreen:protected clsScreen
 {
 private:
@@ -16,12 +17,11 @@ private:
 	}
 	static void _ShowCurrenciesListScreen()
 	{
-		cout << "\nCurriencies List Screen Will Be Here.\n";
+		clsCurrencyListScreen::showCurrencyListScreen();
 	}
 	static void _ShowFindCurrencyScreen()
 	{
-		cout << "\nFind Currency Screen Will Be Here.\n";
-
+		clsFindCurrencyScreen::showFindCurrencyScreen();
 	}
 	static void _ShowUpdateCurrencyRateScreen()
 	{

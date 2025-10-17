@@ -72,11 +72,9 @@ private:
 	}
 	static void _SaveUsersDataToFile(vector <clsUser> vUsers)
 	{
-
 		fstream myFile;
 		myFile.open("Users.txt", ios::out);
 		string dataLine;
-
 		if (myFile.is_open())
 		{
 			for (clsUser U : vUsers)

@@ -20,7 +20,7 @@ C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsString.h(369,22
 C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsUtil.h(62,5): warning C4102: 'defualt': unreferenced label
   (compiling source file 'main.cpp')
   
-C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsUser.h(138,9): warning C4240: nonstandard extension used: access to 'clsUser::stLoginRegisterRecord' now defined to be 'public', previously it was defined to be 'private'
+C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsUser.h(136,9): warning C4240: nonstandard extension used: access to 'clsUser::stLoginRegisterRecord' now defined to be 'public', previously it was defined to be 'private'
   (compiling source file 'main.cpp')
       C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsUser.h(17,9):
       see declaration of 'clsUser::stLoginRegisterRecord'
@@ -42,7 +42,10 @@ C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsInputValidate.h
 C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsTotalBalanceScreen.h(39,54): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
   (compiling source file 'main.cpp')
   
+C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsFindCurrencyScreen.h(32,9): warning C4101: 'findBy': unreferenced local variable
+  (compiling source file 'main.cpp')
+  
 C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsLoginScreen.h(58,1): warning C4715: 'clsLoginScreen::_Login': not all control paths return a value
 C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsBankClient.h(314,1): warning C4715: 'clsBankClient::save': not all control paths return a value
-C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsUser.h(272,1): warning C4715: 'clsUser::save': not all control paths return a value
+C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsUser.h(270,1): warning C4715: 'clsUser::save': not all control paths return a value
   bank system.vcxproj -> C:\Users\abood\Github\bank_system_oop\bank system\x64\Debug\bank system.exe
