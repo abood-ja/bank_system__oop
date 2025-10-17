@@ -3,6 +3,8 @@
 #include <string>
 #include "clsPerson.h"
 #include "clsString.h"
+#include "clsUtil.h"
+
 class clsUser:public clsPerson
 {
 private:
@@ -19,17 +21,25 @@ private:
 		vector <string> LoginRegisterDataLine = clsString::Split(Line, Seperator);
 		LoginRegisterRecord.dateTime = LoginRegisterDataLine[0];
 		LoginRegisterRecord.userName = LoginRegisterDataLine[1];
-		LoginRegisterRecord.password = LoginRegisterDataLine[2];
+		LoginRegisterRecord.password = clsUtil::DecryptText (LoginRegisterDataLine[2]);
 		LoginRegisterRecord.permissions = stoi(LoginRegisterDataLine[3]);
 		return LoginRegisterRecord;
+	}
+	string _PrepareLoginRecord(string seperator = "#//#")
+	{
+		string line = "";
+		line += clsDate::GetSystemDateTimeString() + seperator;
+		line += userName + seperator;
+		line += clsUtil::EncryptText(password) + seperator;
+		line += to_string(permissions);
+		return line;
 	}
 	static clsUser _ConvertLinetoUserObject(string Line, string seperator = "#//#")
 	{
 		vector<string> vUserData;
 		vUserData = clsString::Split(Line, seperator);
-
 		return clsUser(enMode::UpdateMode, vUserData[0], vUserData[1], vUserData[2],
-			vUserData[3], vUserData[4], vUserData[5], stoi(vUserData[6]));
+			vUserData[3], vUserData[4], clsUtil::DecryptText(vUserData[5]), stoi(vUserData[6]));
 	}
 	static string _ConvertUserObjectToLine(clsUser user, string seperator = "#//#")
 	{
@@ -39,7 +49,7 @@ private:
 		line += user.getEmail() + seperator;
 		line += user.getPhone() + seperator;
 		line += user.getUserName() + seperator;
-		line += user.getPassword() + seperator;
+		line += clsUtil::EncryptText(user.getPassword()) + seperator;
 		line += to_string(user.getPermissions() )+ seperator;
 		return line;
 	}
@@ -109,15 +119,6 @@ private:
 	void _AddNew()
 	{
 		_AddDataLineToFile(_ConvertUserObjectToLine(*this));
-	}
-	 string _PrepareLoginRecord(string seperator = "#//#")
-	{
-		string line = "";
-		line += clsDate::GetSystemDateTimeString() + seperator;
-		line += userName + seperator;
-		line += password + seperator;
-		line += to_string(permissions);
-		return line;
 	}
 public:
 	clsUser(enMode Mode, string FirstName, string LastName,

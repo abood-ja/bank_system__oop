@@ -17,9 +17,12 @@ C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsString.h(321,30
 C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsString.h(369,22): warning C4267: 'initializing': conversion from 'size_t' to 'short', possible loss of data
   (compiling source file 'main.cpp')
   
-C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsUser.h(137,9): warning C4240: nonstandard extension used: access to 'clsUser::stLoginRegisterRecord' now defined to be 'public', previously it was defined to be 'private'
+C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsUtil.h(62,5): warning C4102: 'defualt': unreferenced label
   (compiling source file 'main.cpp')
-      C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsUser.h(15,9):
+  
+C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsUser.h(138,9): warning C4240: nonstandard extension used: access to 'clsUser::stLoginRegisterRecord' now defined to be 'public', previously it was defined to be 'private'
+  (compiling source file 'main.cpp')
+      C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsUser.h(17,9):
       see declaration of 'clsUser::stLoginRegisterRecord'
   
 C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsBankClient.h(315,13): warning C4240: nonstandard extension used: access to 'clsBankClient::stTransferLogRecord' now defined to be 'public', previously it was defined to be 'private'
@@ -36,13 +39,10 @@ C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsInputValidate.h
 C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsInputValidate.h(116,26): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'main.cpp')
   
-C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsUtil.h(64,5): warning C4102: 'defualt': unreferenced label
-  (compiling source file 'main.cpp')
-  
 C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsTotalBalanceScreen.h(39,54): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
   (compiling source file 'main.cpp')
   
 C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsLoginScreen.h(58,1): warning C4715: 'clsLoginScreen::_Login': not all control paths return a value
 C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsBankClient.h(314,1): warning C4715: 'clsBankClient::save': not all control paths return a value
-C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsUser.h(271,1): warning C4715: 'clsUser::save': not all control paths return a value
+C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsUser.h(272,1): warning C4715: 'clsUser::save': not all control paths return a value
   bank system.vcxproj -> C:\Users\abood\Github\bank_system_oop\bank system\x64\Debug\bank system.exe

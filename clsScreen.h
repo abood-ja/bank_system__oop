@@ -6,6 +6,7 @@
 #include "clsMainScreen.h"
 #include <iostream>
 #include "clsUser.h"
+#include "clsUtil.h"
 #include "global.h"
 
 class clsScreen
