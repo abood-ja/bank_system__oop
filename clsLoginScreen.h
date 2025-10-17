@@ -5,6 +5,16 @@
 class clsLoginScreen:protected clsScreen
 {
 private:
+	static string _PrepareLoginRecord(string seperator = "#//#")
+	{
+		string line = "";
+		line += clsDate::GetSystemDateTimeString() + seperator;
+		line += currentUser.getUserName() + seperator;
+		line += currentUser.getPassword() + seperator;
+		line += to_string(currentUser.getPermissions());
+		return line;
+	}
+
 	static bool _Login()
 	{
 		int failedLoginCount = 0;
@@ -44,6 +54,7 @@ private:
 			user = clsUser::find(userName, password);
 		}
 		currentUser = user;
+		currentUser.registerLogin();
 		clsMainScreen::showMainMenu();
 	}
 public:

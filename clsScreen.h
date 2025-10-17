@@ -22,7 +22,6 @@ protected:
         cout << "\n\t\t\t\t\t______________________________________\n\n";
         cout << "\n\t\t\t\t\tUser: " << currentUser.getFullName() << "\n";
         cout << "\t\t\t\t\tDate: " << clsDate::DateToString(clsDate())<< "\n\n";
-        
 	}
     static bool CheckAccessRights(clsUser::enPermissions Permission)
     {

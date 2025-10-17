@@ -99,6 +99,15 @@ private:
 	{
 		_AddDataLineToFile(_ConvertUserObjectToLine(*this));
 	}
+	 string _PrepareLoginRecord(string seperator = "#//#")
+	{
+		string line = "";
+		line += clsDate::GetSystemDateTimeString() + seperator;
+		line += userName + seperator;
+		line += password + seperator;
+		line += to_string(permissions);
+		return line;
+	}
 public:
 	clsUser(enMode Mode, string FirstName, string LastName,
 		string Email, string Phone, string UserName, string Password,
@@ -252,6 +261,17 @@ public:
 		_SaveUsersDataToFile(vUsers);
 		*this = _GetEmptyUserObject();
 		return true;
+	}
+	void registerLogin()
+	{
+		fstream myFile;
+		myFile.open("LoginRegister.txt", ios::out | ios::app);
+		string dataLine= _PrepareLoginRecord();;
+		if (myFile.is_open())
+		{
+			myFile << dataLine << endl;
+			myFile.close();
+		}
 	}
 	bool CheckAccessPermission(enPermissions permission)
 	{
