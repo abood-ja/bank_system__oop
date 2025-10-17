@@ -33,7 +33,7 @@ private:
     static clsBankClient _ConvertLineToClientObject(string line, string seperator = "#//#")
     {
         vector<string>vClientData = clsString::Split(line, seperator);
-        return clsBankClient(enMode::UpdateMode, vClientData[0], vClientData[1], vClientData[2], vClientData[3], vClientData[4], vClientData[5], stod(vClientData[6]));
+        return clsBankClient(enMode::UpdateMode, vClientData[0], vClientData[1], vClientData[2], vClientData[3], vClientData[4], clsUtil::DecryptText(vClientData[5]), stod(vClientData[6]));
     }
     static string _ConvertClientObjectToLine(clsBankClient client, string seperator = "#//#")
     {
@@ -43,7 +43,7 @@ private:
         clientRecord += client.email + seperator;
         clientRecord += client.phone + seperator;
         clientRecord += client.getAccountNumber() + seperator;
-        clientRecord += client.pinCode + seperator;
+        clientRecord += clsUtil::EncryptText(client.pinCode) + seperator;
         clientRecord += to_string(client.accountBalance);
         return clientRecord;
     }

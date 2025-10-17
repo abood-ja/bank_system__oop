@@ -52,7 +52,6 @@ private:
     static void _ShowManageUsersMenu()
     {
         clsManageUsersScreen::showManageUsersScreen();
-
     }
     static void _ShowLoginRegisterScreen()
     {
