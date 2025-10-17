@@ -12,6 +12,17 @@ private:
 	string _Password;
 	int _Permissions;
 	bool _MarkedForDelete=false;
+	struct stLoginRegisterRecord;
+	static stLoginRegisterRecord _ConvertLoginRegisterLineToRecord(string Line, string Seperator = "#//#")
+	{
+		stLoginRegisterRecord LoginRegisterRecord;
+		vector <string> LoginRegisterDataLine = clsString::Split(Line, Seperator);
+		LoginRegisterRecord.dateTime = LoginRegisterDataLine[0];
+		LoginRegisterRecord.userName = LoginRegisterDataLine[1];
+		LoginRegisterRecord.password = LoginRegisterDataLine[2];
+		LoginRegisterRecord.permissions = stoi(LoginRegisterDataLine[3]);
+		return LoginRegisterRecord;
+	}
 	static clsUser _ConvertLinetoUserObject(string Line, string seperator = "#//#")
 	{
 		vector<string> vUserData;
@@ -130,20 +141,6 @@ public:
 		string password;
 		int permissions;
 	};
-	static stLoginRegisterRecord _ConvertLoginRegisterLineToRecord(string Line, string Seperator = "#//#")
-	{
-		stLoginRegisterRecord LoginRegisterRecord;
-
-
-		vector <string> LoginRegisterDataLine = clsString::Split(Line, Seperator);
-		LoginRegisterRecord.dateTime = LoginRegisterDataLine[0];
-		LoginRegisterRecord.userName = LoginRegisterDataLine[1];
-		LoginRegisterRecord.password = LoginRegisterDataLine[2];
-		LoginRegisterRecord.permissions = stoi(LoginRegisterDataLine[3]);
-
-		return LoginRegisterRecord;
-
-	}
 	static vector<stLoginRegisterRecord> getLoginRegisterList()
 	{
 		vector <stLoginRegisterRecord> vLoginRegisterRecords;

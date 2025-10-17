@@ -16,6 +16,20 @@ private:
     string _PinCode;
     double _AccountBalance;
     bool _MarkedForDelete = false;
+    struct  stTransferLogRecord;
+    static stTransferLogRecord _ConvertTransferLogLineToRecord(string Line, string Seperator = "#//#")
+    {
+        stTransferLogRecord transferLogRecord;
+        vector <string> TransferRegisterDataLine = clsString::Split(Line, Seperator);
+        transferLogRecord.dateTime = TransferRegisterDataLine[0];
+        transferLogRecord.transferFrom = TransferRegisterDataLine[1];
+        transferLogRecord.transferTo = TransferRegisterDataLine[2];
+        transferLogRecord.amount = stod(TransferRegisterDataLine[3]);
+        transferLogRecord.transferFromBalance = stod(TransferRegisterDataLine[4]);
+        transferLogRecord.transferToBalance = stod(TransferRegisterDataLine[5]);
+        transferLogRecord.userName = TransferRegisterDataLine[6];
+        return transferLogRecord;
+    }
     static clsBankClient _ConvertLineToClientObject(string line, string seperator = "#//#")
     {
         vector<string>vClientData = clsString::Split(line, seperator);
@@ -308,19 +322,6 @@ public:
         double transferToBalance;
         string userName;
     };
-    static stTransferLogRecord _ConvertTransferLogLineToRecord(string Line, string Seperator = "#//#")
-    {
-        stTransferLogRecord transferLogRecord;
-        vector <string> TransferRegisterDataLine = clsString::Split(Line, Seperator);
-        transferLogRecord.dateTime = TransferRegisterDataLine[0];
-        transferLogRecord.transferFrom = TransferRegisterDataLine[1];
-        transferLogRecord.transferTo = TransferRegisterDataLine[2];
-        transferLogRecord.amount = stod(TransferRegisterDataLine[3]);
-        transferLogRecord.transferFromBalance = stod(TransferRegisterDataLine[4]);
-        transferLogRecord.transferToBalance = stod(TransferRegisterDataLine[5]);
-        transferLogRecord.userName = TransferRegisterDataLine[6];
-        return transferLogRecord;
-    }
     static vector< stTransferLogRecord> getTransferLogList()
     {
         vector<stTransferLogRecord>vTransferLogRecrods;

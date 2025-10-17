@@ -17,7 +17,17 @@ C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsString.h(321,30
 C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsString.h(369,22): warning C4267: 'initializing': conversion from 'size_t' to 'short', possible loss of data
   (compiling source file 'main.cpp')
   
-C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsBankClient.h(275,30): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsUser.h(137,9): warning C4240: nonstandard extension used: access to 'clsUser::stLoginRegisterRecord' now defined to be 'public', previously it was defined to be 'private'
+  (compiling source file 'main.cpp')
+      C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsUser.h(15,9):
+      see declaration of 'clsUser::stLoginRegisterRecord'
+  
+C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsBankClient.h(315,13): warning C4240: nonstandard extension used: access to 'clsBankClient::stTransferLogRecord' now defined to be 'public', previously it was defined to be 'private'
+  (compiling source file 'main.cpp')
+      C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsBankClient.h(19,13):
+      see declaration of 'clsBankClient::stTransferLogRecord'
+  
+C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsBankClient.h(289,30): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'main.cpp')
   
 C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsInputValidate.h(112,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
@@ -33,6 +43,6 @@ C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsTotalBalanceScr
   (compiling source file 'main.cpp')
   
 C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsLoginScreen.h(58,1): warning C4715: 'clsLoginScreen::_Login': not all control paths return a value
-C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsBankClient.h(300,1): warning C4715: 'clsBankClient::save': not all control paths return a value
-C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsUser.h(274,1): warning C4715: 'clsUser::save': not all control paths return a value
+C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsBankClient.h(314,1): warning C4715: 'clsBankClient::save': not all control paths return a value
+C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsUser.h(271,1): warning C4715: 'clsUser::save': not all control paths return a value
   bank system.vcxproj -> C:\Users\abood\Github\bank_system_oop\bank system\x64\Debug\bank system.exe
