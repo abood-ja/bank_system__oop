@@ -108,6 +108,10 @@ private:
 		line += to_string(permissions);
 		return line;
 	}
+	enum enn
+	{
+		happy=1,sad=2
+	}; 
 public:
 	clsUser(enMode Mode, string FirstName, string LastName,
 		string Email, string Phone, string UserName, string Password,
@@ -121,8 +125,47 @@ public:
 	}
 	enum enPermissions {
 		eAll = -1, pListClients = 1, pAddNewClient = 2, pDeleteClient = 4,
-		pUpdateClients = 8, pFindClient = 16, pTranactions = 32, pManageUsers = 64
+		pUpdateClients = 8, pFindClient = 16, pTranactions = 32, pManageUsers = 64,pLoginRegister=128
 	};
+	struct stLoginRegisterRecord
+	{
+		string dateTime;
+		string userName;
+		string password;
+		int permissions;
+	};
+	static stLoginRegisterRecord _ConvertLoginRegisterLineToRecord(string Line, string Seperator = "#//#")
+	{
+		stLoginRegisterRecord LoginRegisterRecord;
+
+
+		vector <string> LoginRegisterDataLine = clsString::Split(Line, Seperator);
+		LoginRegisterRecord.dateTime = LoginRegisterDataLine[0];
+		LoginRegisterRecord.userName = LoginRegisterDataLine[1];
+		LoginRegisterRecord.password = LoginRegisterDataLine[2];
+		LoginRegisterRecord.permissions = stoi(LoginRegisterDataLine[3]);
+
+		return LoginRegisterRecord;
+
+	}
+	static vector<stLoginRegisterRecord> getLoginRegisterList()
+	{
+		vector <stLoginRegisterRecord> vLoginRegisterRecords;
+		fstream MyFile;
+		MyFile.open("LoginRegister.txt", ios::in);//read Mode
+		if (MyFile.is_open())
+		{
+			string Line;
+			stLoginRegisterRecord loginRegisterRecord;
+			while (getline(MyFile, Line))
+			{
+				loginRegisterRecord = _ConvertLoginRegisterLineToRecord(Line);
+				vLoginRegisterRecords.push_back(loginRegisterRecord);
+			}
+			MyFile.close();
+		}
+		return vLoginRegisterRecords;
+	}
 	bool isEmpty()
 	{
 		return (this->_Mode== enMode::EmptyMode);

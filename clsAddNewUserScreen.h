@@ -25,71 +25,75 @@ private:
 	}
 	static int _ReadPermissionsToSet()
 	{
-        int permissions = 0;
-        char answer = 'n';
+		int permissions = 0;
+		char answer = 'n';
 
 
-        cout << "\nDo you want to give full access? y/n? ";
-        cin >> answer;
-        if (answer == 'y' || answer == 'Y')
-        {
-            return -1;
-        }
+		cout << "\nDo you want to give full access? y/n? ";
+		cin >> answer;
+		if (answer == 'y' || answer == 'Y')
+		{
+			return -1;
+		}
 
-        cout << "\nDo you want to give access to : \n ";
+		cout << "\nDo you want to give access to : \n ";
 
-        cout << "\nShow Client List? y/n? ";
-        cin >> answer;
-        if (answer == 'y' || answer == 'Y')
-        {
+		cout << "\nShow Client List? y/n? ";
+		cin >> answer;
+		if (answer == 'y' || answer == 'Y')
+		{
+			permissions += clsUser::enPermissions::pListClients;
+		}
 
+		cout << "\nAdd New Client? y/n? ";
+		cin >> answer;
+		if (answer == 'y' || answer == 'Y')
+		{
+			permissions += clsUser::enPermissions::pAddNewClient;
+		}
 
-            permissions += clsUser::enPermissions::pListClients;
-        }
+		cout << "\nDelete Client? y/n? ";
+		cin >> answer;
+		if (answer == 'y' || answer == 'Y')
+		{
+			permissions += clsUser::enPermissions::pDeleteClient;
+		}
 
-        cout << "\nAdd New Client? y/n? ";
-        cin >> answer;
-        if (answer == 'y' || answer == 'Y')
-        {
-            permissions += clsUser::enPermissions::pAddNewClient;
-        }
+		cout << "\nUpdate Client? y/n? ";
+		cin >> answer;
+		if (answer == 'y' || answer == 'Y')
+		{
+			permissions += clsUser::enPermissions::pUpdateClients;
+		}
 
-        cout << "\nDelete Client? y/n? ";
-        cin >> answer;
-        if (answer == 'y' || answer == 'Y')
-        {
-            permissions += clsUser::enPermissions::pDeleteClient;
-        }
+		cout << "\nFind Client? y/n? ";
+		cin >> answer;
+		if (answer == 'y' || answer == 'Y')
+		{
+			permissions += clsUser::enPermissions::pFindClient;
+		}
 
-        cout << "\nUpdate Client? y/n? ";
-        cin >> answer;
-        if (answer == 'y' || answer == 'Y')
-        {
-            permissions += clsUser::enPermissions::pUpdateClients;
-        }
+		cout << "\nTransactions? y/n? ";
+		cin >> answer;
+		if (answer == 'y' || answer == 'Y')
+		{
+			permissions += clsUser::enPermissions::pTranactions;
+		}
 
-        cout << "\nFind Client? y/n? ";
-        cin >> answer;
-        if (answer == 'y' || answer == 'Y')
-        {
-            permissions += clsUser::enPermissions::pFindClient;
-        }
+		cout << "\nManage Users? y/n? ";
+		cin >> answer;
+		if (answer == 'y' || answer == 'Y')
+		{
+			permissions += clsUser::enPermissions::pManageUsers;
+		}
+		cout << "\nLogin Register? y/n? ";
+		cin >> answer;
+		if (answer == 'y' || answer == 'Y')
+		{
+			permissions += clsUser::enPermissions::pLoginRegister;
+		}
 
-        cout << "\nTransactions? y/n? ";
-        cin >> answer;
-        if (answer == 'y' || answer == 'Y')
-        {
-            permissions += clsUser::enPermissions::pTranactions;
-        }
-
-        cout << "\nManage Users? y/n? ";
-        cin >> answer;
-        if (answer == 'y' || answer == 'Y')
-        {
-            permissions += clsUser::enPermissions::pManageUsers;
-        }
-
-        return permissions;
+		return permissions;
 	}
     static void _PrintUser(clsUser user)
 	{
