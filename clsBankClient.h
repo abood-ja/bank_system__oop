@@ -1,8 +1,11 @@
 #pragma once
 #include <fstream>
 #include <string>
+
+#include "clsDate.h"
 #include "clsPerson.h"
 #include "clsString.h"
+#include "global.h"
 
 class clsBankClient : public clsPerson
 {
@@ -84,11 +87,34 @@ private:
             MyFile.close();
         }
     }
-     void _AddNew()
+    string _PrepareTransferLogRecord(float amount, clsBankClient destinationClient,string userName, string seperator = "#//#")
+    {
+        string TransferLogRecord = "";
+        TransferLogRecord += clsDate::GetSystemDateTimeString() + seperator;
+        TransferLogRecord += getAccountNumber() + seperator;
+        TransferLogRecord += destinationClient.getAccountNumber() + seperator;
+        TransferLogRecord += to_string(amount) + seperator;
+        TransferLogRecord += to_string(getAccountBalance()) + seperator;
+        TransferLogRecord += to_string(destinationClient.getAccountBalance()) + seperator;
+        TransferLogRecord += userName;
+        return TransferLogRecord;
+    }
+    void _RegisterTransferLog(float amount, clsBankClient destinationClient, string userName)
+    {
+        string stDataLine = _PrepareTransferLogRecord(amount, destinationClient, userName);
+        fstream myFile;
+        myFile.open("TransferLog.txt", ios::out | ios::app);
+        if (myFile.is_open())
+        {
+            myFile << stDataLine << endl;
+            myFile.close();
+        }
+    }
+	void _AddNew()
     {
          _AddDataLineToFile(_ConvertClientObjectToLine(*this));
     }
-     void _Update()
+	void _Update()
      {
 
 
@@ -238,7 +264,7 @@ public:
         return true;
         }
     }
-    bool transfer(double amount,clsBankClient destinationClient)
+    bool transfer(double amount,clsBankClient destinationClient,string userName)
     {
 	    if (amount>this->getAccountBalance())
 	    {
@@ -246,6 +272,7 @@ public:
 	    }
         withdraw(amount);
         destinationClient.deposit(amount);
+        _RegisterTransferLog(amount, destinationClient, userName);
         return true;
     }
     enum enSaveResults { svFailedEmptyObject = 0,svSucceeded=1, svFailedAccountNumberExists=2};

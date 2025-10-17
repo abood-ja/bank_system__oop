@@ -17,6 +17,9 @@ C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsString.h(321,30
 C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsString.h(369,22): warning C4267: 'initializing': conversion from 'size_t' to 'short', possible loss of data
   (compiling source file 'main.cpp')
   
+C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsBankClient.h(275,30): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
 C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsInputValidate.h(112,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'main.cpp')
   
@@ -30,6 +33,6 @@ C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsTotalBalanceScr
   (compiling source file 'main.cpp')
   
 C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsLoginScreen.h(59,1): warning C4715: 'clsLoginScreen::_Login': not all control paths return a value
-C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsBankClient.h(273,1): warning C4715: 'clsBankClient::save': not all control paths return a value
+C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsBankClient.h(300,1): warning C4715: 'clsBankClient::save': not all control paths return a value
 C:\Users\abood\Github\bank_system_oop\bank system\bank system\clsUser.h(274,1): warning C4715: 'clsUser::save': not all control paths return a value
   bank system.vcxproj -> C:\Users\abood\Github\bank_system_oop\bank system\x64\Debug\bank system.exe

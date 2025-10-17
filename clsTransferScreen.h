@@ -77,7 +77,7 @@ public:
 		cin >> answer;
 		if (answer == 'Y' || answer == 'y')
 		{
-			if (clientToTransferFrom.transfer(amountToTransfer,clientToTransferTo)) {
+			if (clientToTransferFrom.transfer(amountToTransfer,clientToTransferTo,currentUser.getUserName())) {
 				cout << "\nTransfer Done Successfully.\n";
 				_PrintClient(clientToTransferFrom);
 				_PrintClient(clientToTransferTo);
