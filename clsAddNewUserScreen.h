@@ -92,6 +92,12 @@ private:
 		{
 			permissions += clsUser::enPermissions::pShowLoginRegister;
 		}
+		cout << "\nCurrency Exchange? y/n? ";
+		cin >> answer;
+		if (answer == 'y' || answer == 'Y')
+		{
+			permissions += clsUser::enPermissions::pShowCurrencyExchange;
+		}
 
 		return permissions;
 	}
